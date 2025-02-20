@@ -1,0 +1,40 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-color: #007bff;
+  --secondary-background-color: #f0f0f0;
+  --right-pane-bg: #ffffff;
+  --input-bg: #f0f0f0;           /* Input field background in light mode */
+  --input-text-color: #171717;   /* Input text color in light mode */
+  --user-bubble-bg: #f0f0f0;      /* Your prompts: light grey */
+  --ali-bubble-bg: #ffffff;       /* ALI responses: white */
+  --icon-color: #000000;         /* Icons in light mode */
+  --dropdown-bg: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary-color: #0a84ff;
+    --secondary-background-color: #333333;
+    --right-pane-bg: #2a2a2a;      /* Right pane background: dark grey */
+    --input-bg: #3a3a3a;           /* Input field background in dark mode (lighter than overall bg) */
+    --input-text-color: #ffffff;   /* Input text color in dark mode */
+    --user-bubble-bg: #3a3a3a;      /* Your prompts: dark grey */
+    --ali-bubble-bg: transparent;  /* ALI responses: no background */
+    --icon-color: #ffffff;         /* Icons in dark mode */
+    --dropdown-bg: #666666;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
