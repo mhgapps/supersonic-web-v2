@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/src_app_6a83a3._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/src_app_28a304._.js", {
 
 "[project]/src/app/ask-ali/ConversationOptionsDropdown.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -1004,7 +1004,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/app/ask-ali/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/ask-ali/OptionButtons.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
@@ -1014,26 +1014,16 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$noop$2d$head$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/client/components/noop-head.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$ConversationHistory$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/app/ask-ali/ConversationHistory.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$MessageInput$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/app/ask-ali/MessageInput.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$markdown$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__Markdown__as__default$3e$__ = __turbopack_import__("[project]/node_modules/react-markdown/lib/index.js [app-client] (ecmascript) <export Markdown as default>");
 ;
-var _s = __turbopack_refresh__.signature(), _s1 = __turbopack_refresh__.signature();
+var _s = __turbopack_refresh__.signature();
 "use client";
 ;
-;
-;
-;
-;
-// ----------------------
-// Updated OptionButtons Component
-// ----------------------
-const OptionButtons = ({ options, onSelected })=>{
+const OptionButtons = ({ options, onSelected, darkMode = false })=>{
     _s();
-    const useCustomMultiSelect = options.length > 4;
-    // For small sets (≤4), still show inline buttons:
-    if (!useCustomMultiSelect) {
+    // Decide whether to show inline or popup
+    const usePopupMultiSelect = options.length > 4;
+    // For small sets, show inline buttons
+    if (!usePopupMultiSelect) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             style: {
                 marginTop: 8
@@ -1042,26 +1032,28 @@ const OptionButtons = ({ options, onSelected })=>{
                     onClick: ()=>onSelected(opt),
                     style: {
                         marginRight: 8,
-                        padding: '6px 12px',
-                        borderRadius: '20px',
-                        border: '1px solid #ccc',
-                        backgroundColor: 'transparent',
-                        cursor: 'pointer'
+                        padding: "6px 12px",
+                        borderRadius: "20px",
+                        border: "1px solid",
+                        borderColor: darkMode ? "#666" : "#ccc",
+                        backgroundColor: "transparent",
+                        color: darkMode ? "#fff" : "#171717",
+                        cursor: "pointer"
                     },
                     children: opt
                 }, index, false, {
-                    fileName: "[project]/src/app/ask-ali/page.tsx",
-                    lineNumber: 34,
+                    fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                    lineNumber: 24,
                     columnNumber: 11
                 }, this))
         }, void 0, false, {
-            fileName: "[project]/src/app/ask-ali/page.tsx",
-            lineNumber: 32,
+            fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+            lineNumber: 22,
             columnNumber: 7
         }, this);
     }
-    // For more than 4 options, show a custom multi-select with checkboxes:
-    const [panelOpen, setPanelOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // For larger sets, show popup overlay with multi-select checkboxes
+    const [showOverlay, setShowOverlay] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [selected, setSelected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const toggleSelection = (option)=>{
         setSelected((prev)=>prev.includes(option) ? prev.filter((o)=>o !== option) : [
@@ -1070,11 +1062,15 @@ const OptionButtons = ({ options, onSelected })=>{
             ]);
     };
     const handleConfirm = ()=>{
+        // Combine selected items into a single string (adjust if needed)
         if (selected.length > 0) {
-            // Join selected items into a string (adjust as needed)
-            onSelected(selected.join(', '));
+            onSelected(selected.join(", "));
         }
-        setPanelOpen(false);
+        setShowOverlay(false);
+    };
+    const handleCancel = ()=>{
+        setSelected([]);
+        setShowOverlay(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: {
@@ -1082,104 +1078,412 @@ const OptionButtons = ({ options, onSelected })=>{
         },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                onClick: ()=>setPanelOpen(!panelOpen),
+                onClick: ()=>setShowOverlay(true),
                 style: {
-                    padding: '6px 12px',
-                    borderRadius: '20px',
-                    border: '1px solid #ccc',
-                    backgroundColor: 'transparent',
-                    cursor: 'pointer'
+                    padding: "6px 12px",
+                    borderRadius: "20px",
+                    border: "1px solid",
+                    borderColor: darkMode ? "#666" : "#ccc",
+                    backgroundColor: "transparent",
+                    color: darkMode ? "#fff" : "#171717",
+                    cursor: "pointer"
                 },
                 children: "Select Options"
             }, void 0, false, {
-                fileName: "[project]/src/app/ask-ali/page.tsx",
-                lineNumber: 75,
+                fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                lineNumber: 70,
                 columnNumber: 7
             }, this),
-            panelOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            showOverlay && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
-                    marginTop: 8,
-                    border: '1px solid #ccc',
-                    borderRadius: 8,
-                    padding: 8,
-                    maxHeight: 150,
-                    overflowY: 'auto'
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "100vh",
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 9999
                 },
-                children: [
-                    options.map((opt, index)=>{
-                        const checked = selected.includes(opt);
-                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        backgroundColor: darkMode ? "#333" : "#fff",
+                        borderRadius: 8,
+                        padding: 16,
+                        width: 400,
+                        maxWidth: "90%"
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                             style: {
-                                marginBottom: 4
+                                marginTop: 0,
+                                marginBottom: 12,
+                                color: darkMode ? "#fff" : "#171717"
                             },
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                style: {
-                                    cursor: 'pointer'
-                                },
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "checkbox",
-                                        checked: checked,
-                                        onChange: ()=>toggleSelection(opt),
-                                        style: {
-                                            marginRight: 6
-                                        }
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/ask-ali/page.tsx",
-                                        lineNumber: 104,
-                                        columnNumber: 19
-                                    }, this),
-                                    opt
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/ask-ali/page.tsx",
-                                lineNumber: 103,
-                                columnNumber: 17
-                            }, this)
-                        }, index, false, {
-                            fileName: "[project]/src/app/ask-ali/page.tsx",
-                            lineNumber: 102,
-                            columnNumber: 15
-                        }, this);
-                    }),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: handleConfirm,
-                        style: {
-                            marginTop: 8,
-                            padding: '6px 12px',
-                            borderRadius: '20px',
-                            border: '1px solid #ccc',
-                            backgroundColor: 'transparent',
-                            cursor: 'pointer'
-                        },
-                        children: "Confirm"
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/ask-ali/page.tsx",
-                        lineNumber: 115,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/app/ask-ali/page.tsx",
-                lineNumber: 89,
+                            children: "Select Options"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                            lineNumber: 109,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                display: "grid",
+                                gridTemplateColumns: "1fr 1fr",
+                                gap: 8,
+                                maxHeight: 300,
+                                overflowY: "auto",
+                                marginBottom: 12
+                            },
+                            children: options.map((opt, index)=>{
+                                const checked = selected.includes(opt);
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    style: {
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        color: darkMode ? "#fff" : "#171717"
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "checkbox",
+                                            checked: checked,
+                                            onChange: ()=>toggleSelection(opt),
+                                            style: {
+                                                marginRight: 6
+                                            }
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                                            lineNumber: 142,
+                                            columnNumber: 21
+                                        }, this),
+                                        opt
+                                    ]
+                                }, index, true, {
+                                    fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                                    lineNumber: 133,
+                                    columnNumber: 19
+                                }, this);
+                            })
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                            lineNumber: 120,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                display: "flex",
+                                justifyContent: "flex-end",
+                                gap: 8
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: handleCancel,
+                                    style: {
+                                        padding: "6px 12px",
+                                        borderRadius: "20px",
+                                        border: "1px solid",
+                                        borderColor: darkMode ? "#666" : "#ccc",
+                                        backgroundColor: "transparent",
+                                        color: darkMode ? "#fff" : "#171717",
+                                        cursor: "pointer"
+                                    },
+                                    children: "Cancel"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                                    lineNumber: 156,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: handleConfirm,
+                                    style: {
+                                        padding: "6px 12px",
+                                        borderRadius: "20px",
+                                        border: "1px solid",
+                                        borderColor: darkMode ? "#666" : "#ccc",
+                                        backgroundColor: "transparent",
+                                        color: darkMode ? "#fff" : "#171717",
+                                        cursor: "pointer"
+                                    },
+                                    children: "Confirm"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                                    lineNumber: 170,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                            lineNumber: 155,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                    lineNumber: 100,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+                lineNumber: 86,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
-        fileName: "[project]/src/app/ask-ali/page.tsx",
-        lineNumber: 74,
+        fileName: "[project]/src/app/ask-ali/OptionButtons.tsx",
+        lineNumber: 69,
         columnNumber: 5
     }, this);
 };
-_s(OptionButtons, "XGjtiQi4riaUCb4erG+lADfuEgU=");
+_s(OptionButtons, "NBPcYrSXgLaXQGSpqfrS6R8Rdh0=");
 _c = OptionButtons;
-// ----------------------
-// API Endpoint
-// ----------------------
+const __TURBOPACK__default__export__ = OptionButtons;
+var _c;
+__turbopack_refresh__.register(_c, "OptionButtons");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/src/app/ask-ali/EmployeeSelector.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>EmployeeSelector)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_refresh__.signature();
+"use client";
+;
+function EmployeeSelector({ darkMode, onSelect, onClose }) {
+    _s();
+    const [employees, setEmployees] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [searchTerm, setSearchTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Hard-coded userId for now
+    const HARD_CODED_USER_ID = "guest#user-guest";
+    // Base URL
+    const API_BASE_URL = "https://u4twn69urd.execute-api.us-east-1.amazonaws.com";
+    // Fetch employees on mount
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "EmployeeSelector.useEffect": ()=>{
+            async function fetchEmployees() {
+                setIsLoading(true);
+                setError(null);
+                try {
+                    // For example: GET /{userId}?type=Employee
+                    const url = `${API_BASE_URL}/${encodeURIComponent(HARD_CODED_USER_ID)}?type=Employee`;
+                    const res = await fetch(url);
+                    if (!res.ok) {
+                        throw new Error(`API Error: ${res.status}`);
+                    }
+                    const data = await res.json();
+                    if (data.status === "success" && Array.isArray(data.data)) {
+                        setEmployees(data.data);
+                    } else {
+                        setEmployees([]);
+                    }
+                } catch (err) {
+                    console.error("Error fetching employees:", err);
+                    setError("Failed to load employees.");
+                }
+                setIsLoading(false);
+            }
+            fetchEmployees();
+        }
+    }["EmployeeSelector.useEffect"], []);
+    // Handle search
+    const handleSearchChange = (e)=>{
+        setSearchTerm(e.target.value);
+    };
+    // Filter employees by searchTerm
+    // Use (emp.name || "") so we never call toLowerCase() on undefined
+    const filteredEmployees = employees.filter((emp)=>(emp.name || "").toLowerCase().includes(searchTerm.toLowerCase()));
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            border: darkMode ? "1px solid #666" : "1px solid #ccc",
+            backgroundColor: darkMode ? "#333" : "#fff",
+            padding: 16,
+            borderRadius: 8,
+            marginTop: 8,
+            maxWidth: 300
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: "flex",
+                    justifyContent: "space-between"
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                        style: {
+                            color: darkMode ? "#fff" : "#000"
+                        },
+                        children: "Select Employee"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                        lineNumber: 85,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: onClose,
+                        style: {
+                            border: "none",
+                            background: "transparent",
+                            color: darkMode ? "#fff" : "#000",
+                            cursor: "pointer"
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                            className: "fa-solid fa-times"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                            lineNumber: 97,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                        lineNumber: 88,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                lineNumber: 84,
+                columnNumber: 7
+            }, this),
+            isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                style: {
+                    color: darkMode ? "#fff" : "#000"
+                },
+                children: "Loading employees..."
+            }, void 0, false, {
+                fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                lineNumber: 103,
+                columnNumber: 9
+            }, this) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                style: {
+                    color: "red"
+                },
+                children: error
+            }, void 0, false, {
+                fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                lineNumber: 107,
+                columnNumber: 9
+            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                        type: "text",
+                        value: searchTerm,
+                        onChange: handleSearchChange,
+                        placeholder: "Search employee...",
+                        style: {
+                            width: "100%",
+                            padding: 8,
+                            marginTop: 8,
+                            borderRadius: 4,
+                            border: "1px solid #ccc",
+                            outline: "none"
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                        lineNumber: 110,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            maxHeight: 200,
+                            overflowY: "auto",
+                            marginTop: 8
+                        },
+                        children: [
+                            filteredEmployees.map((emp)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    onClick: ()=>onSelect(emp.name || "Unknown"),
+                                    style: {
+                                        padding: "6px 8px",
+                                        borderRadius: 4,
+                                        cursor: "pointer",
+                                        color: darkMode ? "#fff" : "#000",
+                                        marginBottom: 4,
+                                        backgroundColor: darkMode ? "#444" : "#f9f9f9"
+                                    },
+                                    children: emp.name || "Unnamed Employee"
+                                }, emp.employeeId, false, {
+                                    fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                                    lineNumber: 127,
+                                    columnNumber: 15
+                                }, this)),
+                            filteredEmployees.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                style: {
+                                    color: darkMode ? "#fff" : "#000"
+                                },
+                                children: "No matching employees"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                                lineNumber: 143,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+                        lineNumber: 125,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/app/ask-ali/EmployeeSelector.tsx",
+        lineNumber: 73,
+        columnNumber: 5
+    }, this);
+}
+_s(EmployeeSelector, "nTMZ1gNEgrKSVrpxj+bA5QTOU4Q=");
+_c = EmployeeSelector;
+var _c;
+__turbopack_refresh__.register(_c, "EmployeeSelector");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/src/app/ask-ali/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>AskAli)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$noop$2d$head$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/client/components/noop-head.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$ConversationHistory$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/app/ask-ali/ConversationHistory.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$MessageInput$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/app/ask-ali/MessageInput.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$OptionButtons$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/app/ask-ali/OptionButtons.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$EmployeeSelector$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/app/ask-ali/EmployeeSelector.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$markdown$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__Markdown__as__default$3e$__ = __turbopack_import__("[project]/node_modules/react-markdown/lib/index.js [app-client] (ecmascript) <export Markdown as default>");
+;
+var _s = __turbopack_refresh__.signature();
+"use client";
+;
+;
+;
+;
+;
+;
+;
+//
+// API ENDPOINT
+//
 const conversationApiUrl = "https://sem28c4rii.execute-api.us-east-1.amazonaws.com";
-// ----------------------
-// Helpers
-// ----------------------
+//
+// HELPER FUNCTIONS
+//
 function trimTrailingAsterisks(text) {
     return text.replace(/\*+$/, "").trim();
 }
@@ -1209,139 +1513,162 @@ function convertRelativeDates(text) {
     }
     return text;
 }
-function processAliResponse(response) {
+/**
+ * Parses ALI's response. If it contains "OPTIONS:EMPLOYEELIST",
+ * we'll treat that as a special inline employee selector.
+ * Otherwise, we do normal "OPTIONS:" logic or no options at all.
+ */ function processAliResponse(response) {
     let processed = response.replace("Thank you for providing the time.", "").trim();
     processed = convertRelativeDates(processed);
-    if (processed.includes("OPTIONS:")) {
-        const parts = processed.split("OPTIONS:");
+    // 1) Special check for employee-list request
+    if (processed.includes("EMPLOYEELIST")) {
+        const parts = processed.split("EMPLOYEELIST");
         const mainMessage = parts[0].trim();
-        const optionsPart = parts[1].trim();
-        const options = optionsPart.split("|").map((opt)=>opt.trim());
         return {
             text: trimTrailingAsterisks(mainMessage),
-            options
+            // We'll store a single "EMPLOYEELIST" in the options
+            options: [
+                "EMPLOYEELIST"
+            ]
         };
     }
+    // 2) Normal "OPTIONS:" logic
+    if (processed.includes("OPTIONS:")) {
+        const [main, rawOpts] = processed.split("OPTIONS:");
+        const optionsArr = rawOpts.split("|").map((o)=>o.trim());
+        return {
+            text: trimTrailingAsterisks(main),
+            options: optionsArr
+        };
+    }
+    // 3) No special marker => no options
     return {
         text: trimTrailingAsterisks(processed),
         options: []
     };
 }
-// ----------------------
-// Main AskAli Page
-// ----------------------
-const AskAli = ()=>{
-    _s1();
-    // Dark mode check
+function AskAli() {
+    _s();
     const [darkMode, setDarkMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Conversation tracking
+    // Track conversation
     const [conversationId, setConversationId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         "AskAli.useState": ()=>{
             if ("TURBOPACK compile-time truthy", 1) {
-                const stored = localStorage.getItem('conversationId');
-                return stored || "";
+                return localStorage.getItem("conversationId") || "";
             }
             "TURBOPACK unreachable";
         }
     }["AskAli.useState"]);
     const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [messageText, setMessageText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [messageText, setMessageText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [isProcessing, setIsProcessing] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     // Conversation list
     const [conversationList, setConversationList] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [editingConversationId, setEditingConversationId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [editingTitle, setEditingTitle] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    // Refs
+    // For auto-scroll
     const chatEndRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    // For aborting fetch
     const abortControllerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    // Load dark mode
+    //
+    // On mount
+    //
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AskAli.useEffect": ()=>{
-            setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            // Detect dark mode
+            setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
+            // Load conversation list
+            fetchConversations();
         }
     }["AskAli.useEffect"], []);
     // Auto-scroll
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AskAli.useEffect": ()=>{
             chatEndRef.current?.scrollIntoView({
-                behavior: 'smooth'
+                behavior: "smooth"
             });
         }
     }["AskAli.useEffect"], [
         messages
     ]);
-    // Fetch conversation list on mount
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "AskAli.useEffect": ()=>{
-            fetchConversations();
-        }
-    }["AskAli.useEffect"], []);
-    // ---------------------
-    // API: Fetch conversation list
-    // ---------------------
+    //
+    // Fetch conversation list
+    //
     const fetchConversations = async ()=>{
         try {
             const res = await fetch(`${conversationApiUrl}/conversations?tenantId=tenant-1&userId=user-guest`);
             if (res.ok) {
                 const data = await res.json();
-                if (Array.isArray(data) && data.length > 0) setConversationList(data);
+                if (Array.isArray(data)) {
+                    setConversationList(data);
+                }
             }
-        } catch  {}
+        } catch (err) {
+            console.error("Error fetching conversation list:", err);
+        }
     };
-    // ---------------------
-    // API: Fetch messages for selected conversation
-    // ---------------------
+    //
+    // Fetch messages for a given conversation
+    //
     const fetchMessagesForConversation = async (convId)=>{
         try {
             const url = `${conversationApiUrl}/messages?conversationId=${encodeURIComponent(convId)}&tenantId=tenant-1&userId=user-guest`;
             const res = await fetch(url, {
-                method: 'GET'
+                method: "GET"
             });
             if (res.ok) {
                 const data = await res.json();
-                const fetchedMessages = Array.isArray(data) ? data : data.messages || [];
-                const converted = fetchedMessages.map((item)=>({
-                        role: item.role === 'assistant' ? 'ali' : item.role,
+                const fetched = Array.isArray(data) ? data : [];
+                const converted = fetched.map((item)=>({
+                        role: item.role === "assistant" ? "ali" : item.role,
                         text: item.content || "",
                         options: item.options || []
                     }));
                 setMessages(converted);
             } else if (res.status === 404) {
                 setMessages([]);
+            } else {
+                console.error("Error fetching messages, status:", res.status);
             }
-        } catch  {}
+        } catch (err) {
+            console.error("Error fetching messages:", err);
+        }
     };
-    // ---------------------
-    // Conversation selection
-    // ---------------------
+    //
+    // Selecting a conversation from left sidebar
+    //
     const handleConversationSelect = (conv)=>{
         setConversationId(conv.conversationId);
-        localStorage.setItem('conversationId', conv.conversationId);
+        if ("TURBOPACK compile-time truthy", 1) {
+            localStorage.setItem("conversationId", conv.conversationId);
+        }
         setMessages([]);
-        if (conv.conversationId.trim()) fetchMessagesForConversation(conv.conversationId);
+        if (conv.conversationId.trim()) {
+            fetchMessagesForConversation(conv.conversationId);
+        }
     };
-    // ---------------------
+    //
     // Send user message
-    // ---------------------
+    //
     const sendMessage = async (text)=>{
         if (!text.trim() || isProcessing) return;
         const abortController = new AbortController();
         abortControllerRef.current = abortController;
         const signal = abortController.signal;
-        // Show user message locally
+        // Add user message locally
         setMessages((prev)=>[
                 ...prev,
                 {
-                    role: 'user',
+                    role: "user",
                     text
                 }
             ]);
         setIsProcessing(true);
         try {
             const res = await fetch(`${conversationApiUrl}/messages`, {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 signal,
                 body: JSON.stringify({
@@ -1353,52 +1680,56 @@ const AskAli = ()=>{
             });
             if (res.ok) {
                 const data = await res.json();
+                // If new conversation was created, update state & reload list
                 if (data.conversationId && data.conversationId !== conversationId) {
                     setConversationId(data.conversationId);
-                    localStorage.setItem('conversationId', data.conversationId);
-                    await fetchConversations();
+                    localStorage.setItem("conversationId", data.conversationId);
+                    fetchConversations();
                 }
+                // Parse AI response
                 const parsed = processAliResponse(data.reply || "");
                 setMessages((prev)=>[
                         ...prev,
                         {
-                            role: 'ali',
+                            role: "ali",
                             text: parsed.text,
                             options: parsed.options
                         }
                     ]);
+            } else {
+                const errText = await res.text();
+                console.error("Error from ALI:", errText);
             }
-        } catch  {}
+        } catch (error) {
+            console.error("Error sending message:", error);
+        }
         setIsProcessing(false);
-        setMessageText('');
+        setMessageText("");
     };
-    // ---------------------
-    // Stop the current AI request
-    // ---------------------
+    const handleSend = ()=>{
+        sendMessage(messageText);
+    };
     const stop = ()=>{
         if (abortControllerRef.current) {
             abortControllerRef.current.abort();
             setIsProcessing(false);
         }
     };
-    // ---------------------
-    // UI Handlers
-    // ---------------------
-    const handleSend = ()=>{
-        sendMessage(messageText);
-    };
+    //
+    // Handling user clicks on AI-provided options
+    //
     const handleOptionClick = (option)=>{
         sendMessage(option);
     };
-    // ---------------------
-    // Conversation History Edits
-    // ---------------------
+    //
+    // Conversation rename logic
+    //
     const handleEditingStart = (conv)=>{
         setEditingConversationId(conv.conversationId);
         setEditingTitle(conv.title);
     };
     const handleRenameKeyDown = (e, convId)=>{
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
             renameConversation(convId, editingTitle);
             setEditingConversationId(null);
         }
@@ -1406,9 +1737,9 @@ const AskAli = ()=>{
     const renameConversation = async (convId, newTitle)=>{
         try {
             await fetch(`${conversationApiUrl}/conversations/${convId}`, {
-                method: 'PUT',
+                method: "PUT",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     title: newTitle,
@@ -1417,14 +1748,16 @@ const AskAli = ()=>{
                 })
             });
             fetchConversations();
-        } catch  {}
+        } catch (err) {
+            console.error("Error renaming conversation:", err);
+        }
     };
     const handleDeleteConversation = async (convId)=>{
         try {
             await fetch(`${conversationApiUrl}/conversations/${convId}`, {
-                method: 'DELETE',
+                method: "DELETE",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     tenantId: "tenant-1",
@@ -1432,29 +1765,13 @@ const AskAli = ()=>{
                 })
             });
             fetchConversations();
-        } catch  {}
-    };
-    // ---------------------
-    // Category Buttons (first conversation prompt)
-    // ---------------------
-    const handleCategorySelection = (category)=>{
-        if (category === "Employee Discipline") {
-            sendMessage("I need to start a new employee discipline incident.");
-        } else if (category === "Harassment/Discrimination") {
-            sendMessage("I need to start a new harassment or discrimination incident.");
-        } else {
-            sendMessage("I need some general HR consultation.");
+        } catch (err) {
+            console.error("Error deleting conversation:", err);
         }
     };
-    // Style
-    const buttonStyle = {
-        padding: '8px 16px',
-        borderRadius: '20px',
-        border: '1px solid #ccc',
-        backgroundColor: 'transparent',
-        cursor: 'pointer',
-        color: darkMode ? '#fff' : '#171717'
-    };
+    //
+    // RENDER
+    //
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$noop$2d$head$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1463,7 +1780,7 @@ const AskAli = ()=>{
                         children: "Ask ALI"
                     }, void 0, false, {
                         fileName: "[project]/src/app/ask-ali/page.tsx",
-                        lineNumber: 402,
+                        lineNumber: 318,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
@@ -1471,27 +1788,26 @@ const AskAli = ()=>{
                         href: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
                     }, void 0, false, {
                         fileName: "[project]/src/app/ask-ali/page.tsx",
-                        lineNumber: 403,
+                        lineNumber: 319,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/ask-ali/page.tsx",
-                lineNumber: 401,
+                lineNumber: 317,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
-                    display: 'flex',
-                    height: '100vh',
-                    backgroundColor: 'var(--background)'
+                    display: "flex",
+                    height: "100vh"
                 },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
                             width: 250,
-                            backgroundColor: 'var(--secondary-background-color)',
-                            overflowY: 'auto'
+                            backgroundColor: "var(--secondary-background-color)",
+                            overflowY: "auto"
                         },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$ConversationHistory$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             conversationList: conversationList,
@@ -1501,200 +1817,245 @@ const AskAli = ()=>{
                             onEditingStart: handleEditingStart,
                             onRename: renameConversation,
                             onRenameKeyDown: handleRenameKeyDown,
-                            onTitleChange: setEditingTitle,
+                            onTitleChange: (newTitle)=>setEditingTitle(newTitle),
                             onDelete: handleDeleteConversation
                         }, void 0, false, {
                             fileName: "[project]/src/app/ask-ali/page.tsx",
-                            lineNumber: 412,
+                            lineNumber: 334,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/ask-ali/page.tsx",
-                        lineNumber: 411,
+                        lineNumber: 327,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
                             flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            backgroundColor: 'var(--right-pane-bg)'
+                            display: "flex",
+                            flexDirection: "column",
+                            backgroundColor: darkMode ? "#222" : "#f7f7f7"
                         },
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            messages.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 style: {
                                     flex: 1,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    overflowY: 'auto',
-                                    padding: 16
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center"
                                 },
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
-                                        maxWidth: 800,
-                                        width: '100%'
+                                        textAlign: "center"
                                     },
                                     children: [
-                                        messages.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             style: {
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                alignItems: 'center',
-                                                textAlign: 'center',
-                                                marginBottom: 24
+                                                fontSize: "1.5rem",
+                                                marginBottom: 16,
+                                                color: darkMode ? "#fff" : "#000"
+                                            },
+                                            children: "What can I help with?"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/ask-ali/page.tsx",
+                                            lineNumber: 367,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                display: "inline-flex",
+                                                gap: "1rem"
                                             },
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>sendMessage("I need to start a new employee discipline incident."),
                                                     style: {
-                                                        fontSize: '1.5rem',
-                                                        marginBottom: 16
-                                                    },
-                                                    children: "What can I help with?"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                    lineNumber: 433,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    style: {
-                                                        display: 'inline-flex',
-                                                        gap: '1rem'
+                                                        padding: "8px 16px",
+                                                        borderRadius: "20px",
+                                                        border: darkMode ? "1px solid #666" : "1px solid #ccc",
+                                                        backgroundColor: "transparent",
+                                                        cursor: "pointer",
+                                                        color: darkMode ? "#fff" : "#171717"
                                                     },
                                                     children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                            onClick: ()=>handleCategorySelection("Employee Discipline"),
-                                                            style: buttonStyle,
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
-                                                                    className: "fa-solid fa-user-shield",
-                                                                    style: {
-                                                                        marginRight: 8
-                                                                    }
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                                    lineNumber: 436,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                "Employee Discipline"
-                                                            ]
-                                                        }, void 0, true, {
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                                                            className: "fa-solid fa-user-shield",
+                                                            style: {
+                                                                marginRight: 8
+                                                            }
+                                                        }, void 0, false, {
                                                             fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                            lineNumber: 435,
+                                                            lineNumber: 388,
                                                             columnNumber: 21
                                                         }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                            onClick: ()=>handleCategorySelection("Harassment/Discrimination"),
-                                                            style: buttonStyle,
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
-                                                                    className: "fa-solid fa-user",
-                                                                    style: {
-                                                                        marginRight: 8
-                                                                    }
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                                    lineNumber: 440,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                "Harassment/Discrimination"
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                            lineNumber: 439,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                            onClick: ()=>handleCategorySelection("General HR Consultation"),
-                                                            style: buttonStyle,
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
-                                                                    className: "fa-solid fa-comments",
-                                                                    style: {
-                                                                        marginRight: 8
-                                                                    }
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                                    lineNumber: 444,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                "General HR Consultation"
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                            lineNumber: 443,
-                                                            columnNumber: 21
-                                                        }, this)
+                                                        "Employee Discipline"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                    lineNumber: 434,
+                                                    lineNumber: 377,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>sendMessage("I need to start a new harassment or discrimination incident."),
+                                                    style: {
+                                                        padding: "8px 16px",
+                                                        borderRadius: "20px",
+                                                        border: darkMode ? "1px solid #666" : "1px solid #ccc",
+                                                        backgroundColor: "transparent",
+                                                        cursor: "pointer",
+                                                        color: darkMode ? "#fff" : "#171717"
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                                                            className: "fa-solid fa-user",
+                                                            style: {
+                                                                marginRight: 8
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/ask-ali/page.tsx",
+                                                            lineNumber: 402,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        "Harassment/Discrimination"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/ask-ali/page.tsx",
+                                                    lineNumber: 391,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>sendMessage("I need some general HR consultation."),
+                                                    style: {
+                                                        padding: "8px 16px",
+                                                        borderRadius: "20px",
+                                                        border: darkMode ? "1px solid #666" : "1px solid #ccc",
+                                                        backgroundColor: "transparent",
+                                                        cursor: "pointer",
+                                                        color: darkMode ? "#fff" : "#171717"
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                                                            className: "fa-solid fa-comments",
+                                                            style: {
+                                                                marginRight: 8
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/ask-ali/page.tsx",
+                                                            lineNumber: 416,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        "General HR Consultation"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/ask-ali/page.tsx",
+                                                    lineNumber: 405,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/ask-ali/page.tsx",
-                                            lineNumber: 432,
+                                            lineNumber: 376,
                                             columnNumber: 17
-                                        }, this),
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/ask-ali/page.tsx",
+                                    lineNumber: 366,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/ask-ali/page.tsx",
+                                lineNumber: 358,
+                                columnNumber: 13
+                            }, this) : // Chat messages
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    flex: 1,
+                                    overflowY: "auto",
+                                    padding: 16,
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center"
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        maxWidth: 800,
+                                        width: "100%"
+                                    },
+                                    children: [
                                         messages.map((msg, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 style: {
                                                     marginBottom: 12,
-                                                    textAlign: msg.role === 'user' ? 'right' : 'left'
+                                                    textAlign: msg.role === "user" ? "right" : "left"
                                                 },
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         style: {
-                                                            display: 'inline-block',
+                                                            display: "inline-block",
                                                             padding: 12,
                                                             borderRadius: 8,
-                                                            backgroundColor: msg.role === 'user' ? darkMode ? "#333" : "#f0f0f0" : "transparent",
-                                                            color: darkMode ? "#fff" : "#171717"
+                                                            backgroundColor: msg.role === "user" ? darkMode ? "#333" : "#e0e0e0" : "transparent",
+                                                            color: darkMode ? "#fff" : "#000"
                                                         },
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$markdown$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__Markdown__as__default$3e$__["default"], {
                                                             children: msg.text
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                            lineNumber: 465,
-                                                            columnNumber: 21
+                                                            lineNumber: 457,
+                                                            columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                        lineNumber: 454,
-                                                        columnNumber: 19
+                                                        lineNumber: 443,
+                                                        columnNumber: 21
                                                     }, this),
-                                                    msg.options && msg.options.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(OptionButtons, {
-                                                        options: msg.options,
-                                                        onSelected: handleOptionClick
+                                                    msg.options && msg.options.length > 0 && (msg.options.includes("EMPLOYEELIST") ? // Inline employee selector
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$EmployeeSelector$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                        darkMode: darkMode,
+                                                        onSelect: (empName)=>{
+                                                            // user picks an employee -> treat as user message
+                                                            handleOptionClick(empName);
+                                                        },
+                                                        onClose: function() {
+                                                            throw new Error("Function not implemented.");
+                                                        }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                        lineNumber: 468,
-                                                        columnNumber: 21
-                                                    }, this)
+                                                        lineNumber: 464,
+                                                        columnNumber: 25
+                                                    }, this) : // Normal OptionButtons
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$OptionButtons$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                        options: msg.options,
+                                                        onSelected: handleOptionClick,
+                                                        darkMode: darkMode
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/ask-ali/page.tsx",
+                                                        lineNumber: 474,
+                                                        columnNumber: 25
+                                                    }, this))
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/src/app/ask-ali/page.tsx",
-                                                lineNumber: 453,
-                                                columnNumber: 17
+                                                lineNumber: 436,
+                                                columnNumber: 19
                                             }, this)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             ref: chatEndRef
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/ask-ali/page.tsx",
-                                            lineNumber: 472,
-                                            columnNumber: 15
+                                            lineNumber: 483,
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/ask-ali/page.tsx",
-                                    lineNumber: 429,
-                                    columnNumber: 13
+                                    lineNumber: 434,
+                                    columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/ask-ali/page.tsx",
-                                lineNumber: 428,
-                                columnNumber: 11
+                                lineNumber: 424,
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ask$2d$ali$2f$MessageInput$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 messageText: messageText,
@@ -1704,30 +2065,28 @@ const AskAli = ()=>{
                                 stop: stop
                             }, void 0, false, {
                                 fileName: "[project]/src/app/ask-ali/page.tsx",
-                                lineNumber: 477,
+                                lineNumber: 489,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/ask-ali/page.tsx",
-                        lineNumber: 426,
+                        lineNumber: 348,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/ask-ali/page.tsx",
-                lineNumber: 409,
+                lineNumber: 325,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
-};
-_s1(AskAli, "3y37aZY/02Tf0ta6F59jzGXudy8=");
-_c1 = AskAli;
-const __TURBOPACK__default__export__ = AskAli;
-var _c, _c1;
-__turbopack_refresh__.register(_c, "OptionButtons");
-__turbopack_refresh__.register(_c1, "AskAli");
+}
+_s(AskAli, "krifyRDGvJhbm1V9TAec34ADAxQ=");
+_c = AskAli;
+var _c;
+__turbopack_refresh__.register(_c, "AskAli");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }
@@ -1739,4 +2098,4 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 }}),
 }]);
 
-//# sourceMappingURL=src_app_6a83a3._.js.map
+//# sourceMappingURL=src_app_28a304._.js.map
